@@ -123,6 +123,7 @@
             font-size: 0.92rem;
             font-weight: 500;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .sidebar-menu ul li a:hover {
@@ -206,6 +207,80 @@
             color: var(--text-dark);
         }
 
+        /* --- Modal Dialog Styling --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            border-top: 5px solid var(--primary-color);
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            background-color: #f8f9fa;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h3 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .modal-footer {
+            padding: 12px 20px 18px;
+            display: flex;
+            justify-content: flex-end;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-close-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--primary-color);
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 900px) {
             .main-container {
@@ -231,6 +306,7 @@
     <div class="marquee-bar">
         <marquee behavior="scroll" direction="left" scrollamount="6">
             📢 Welcome to our School Govt. High School Mumdal | Tehsil Kabirwala Dist: Khanewal
+            📢 This web is Copy Righted. By Nayyer Abbas Khan
         </marquee>
     </div>
 
@@ -241,7 +317,7 @@
         <aside class="sidebar-menu">
             <h3>Menu</h3>
             <ul>
-                <li><a href="#mission">1. Our Mission</a></li>
+                <li><a href="javascript:void(0)" onclick="openMissionModal()">1. Our Mission</a></li>
                 <li><a href="#teaching-staff">2. Teaching Staff</a></li>
                 <li><a href="#non-teaching-staff">3. Non Teaching Staff</a></li>
                 <li><a href="#school-info">4. School Info</a></li>
@@ -276,7 +352,22 @@
 
     </div>
 
-    <!-- JavaScript for Live Date & Time -->
+    <!-- Mission Dialog Box (Modal) -->
+    <div class="modal-overlay" id="mission-modal" onclick="handleBackdropClick(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Our Mission</h3>
+            </div>
+            <div class="modal-body">
+                <p>To shape the future of our community by delivering excellence in education, character building, and digital literacy at Govt. High School mamdal.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" onclick="closeMissionModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Live Date & Time + Modal Controls -->
     <script>
         function updateDateTime() {
             const now = new Date();
@@ -292,7 +383,21 @@
         // Run immediately and update every second
         updateDateTime();
         setInterval(updateDateTime, 1000);
+
+        // Modal Functions
+        function openMissionModal() {
+            document.getElementById('mission-modal').style.display = 'flex';
+        }
+
+        function closeMissionModal() {
+            document.getElementById('mission-modal').style.display = 'none';
+        }
+
+        function handleBackdropClick(e) {
+            if (e.target.id === 'mission-modal') {
+                closeMissionModal();
+            }
+        }
     </script>
 </body>
 </html>
-
