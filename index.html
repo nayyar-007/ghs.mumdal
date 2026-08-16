@@ -302,7 +302,7 @@
             background-color: var(--primary-color);
         }
 
-        /* --- Teaching Staff Photo Grid --- */
+        /* --- Staff Photo Grid --- */
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -339,6 +339,12 @@
             font-weight: 600;
             color: var(--text-dark);
             line-height: 1.3;
+        }
+
+        .staff-meta {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 4px;
         }
 
         /* --- Responsive Design --- */
@@ -380,7 +386,7 @@
             <ul>
                 <li><a href="javascript:void(0)" onclick="openModal('mission-modal')">1. Our Mission</a></li>
                 <li><a href="javascript:void(0)" onclick="openModal('staff-modal')">2. Teaching Staff</a></li>
-                <li><a href="#non-teaching-staff">3. Non Teaching Staff</a></li>
+                <li><a href="javascript:void(0)" onclick="openModal('non-teaching-modal')">3. Non Teaching Staff</a></li>
                 <li><a href="#school-info">4. School Info</a></li>
                 <li><a href="#students-info">5. Students Info</a></li>
                 <li><a href="#contact">6. Contact Us</a></li>
@@ -401,7 +407,7 @@
             <h3>VIPS</h3>
             <div class="vip-gallery">
                 <div class="vip-card">
-                    <img src="images/teachers/Muhammad Ramzan.jpg" alt="Muhammad Ramzan - Headmaster" class="vip-img" onerror="this.src='https://via.placeholder.com/160?text=Nayyer+Abbas'">
+                    <img src="images/teachers/Muhammad Ramzan.jpg" alt="Muhammad Ramzan - Headmaster" class="vip-img" onerror="this.src='https://via.placeholder.com/160?text=Muhammad+Ramzan'">
                     <p>Muhammad Ramzan<br><span style="font-weight: normal; font-size: 0.8rem; color: #666;">*Headmaster</span></p>
                 </div>
                 <div class="vip-card">
@@ -504,6 +510,42 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-close-btn" onclick="closeModal('staff-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Non Teaching Staff Dialog Box (Modal) -->
+    <div class="modal-overlay" id="non-teaching-modal" onclick="handleBackdropClick(event, 'non-teaching-modal')">
+        <div class="modal-box modal-large">
+            <div class="modal-header">
+                <h3>Non Teaching Staff</h3>
+            </div>
+            <div class="modal-body">
+                <div class="staff-grid">
+                    <div class="teacher-card">
+                        <img src="images/non_teaching/Juniad Ahmad.jpg" alt="Juniad Ahmad" class="teacher-photo" onerror="this.src='https://via.placeholder.com/170?text=No+Photo'">
+                        <p class="teacher-name">Juniad Ahmad</p>
+                        <p class="staff-meta">CNIC: 3610390906793</p>
+                    </div>
+                    <div class="teacher-card">
+                        <img src="images/non_teaching/SYED NAZAR ABBAS SHAH.jpg" alt="SYED NAZAR ABBAS SHAH" class="teacher-photo" onerror="this.src='https://via.placeholder.com/170?text=No+Photo'">
+                        <p class="teacher-name">SYED NAZAR ABBAS SHAH</p>
+                        <p class="staff-meta">CNIC: 36102-1859764-3</p>
+                    </div>
+                    <div class="teacher-card">
+                        <img src="images/non_teaching/Muhammad Kashif.jpg" alt="Muhammad Kashif" class="teacher-photo" onerror="this.src='https://via.placeholder.com/170?text=No+Photo'">
+                        <p class="teacher-name">Muhammad Kashif</p>
+                        <p class="staff-meta">CNIC: 3610263766935</p>
+                    </div>
+                    <div class="teacher-card">
+                        <img src="images/non_teaching/Tajmal Hussain.jpg" alt="Tajmal Hussain" class="teacher-photo" onerror="this.src='https://via.placeholder.com/170?text=No+Photo'">
+                        <p class="teacher-name">Tajmal Hussain</p>
+                        <p class="staff-meta">CNIC: 3610276927213</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" onclick="closeModal('non-teaching-modal')">Close</button>
             </div>
         </div>
     </div>
